@@ -97,7 +97,7 @@ class InstructorController {
             
             do {
                 self.bearer = try jsonDecoder.decode(Bearer.self, from: data)
-                //print(self.bearer ?? "no bearer??")
+                print(self.bearer!)
                 
             } catch {
                 NSLog("Error decoding bearer object: \(error)")

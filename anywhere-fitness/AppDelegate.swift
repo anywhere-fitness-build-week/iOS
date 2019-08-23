@@ -16,21 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let instructorController = InstructorController()
-        
-        let instructor = Instructor(fullname: "dong", username: "12", password: "12341")
-        
-//        instructorController.signUp(with: instructor) { (error) in
-//            if let error = error {
-//                print(error)
-//                return
-//            }
-//        }
-//
-        instructorController.signIn(with: instructor) { (error) in
-            print(instructorController.bearer)
-        }
-        
         return true
     }
 
