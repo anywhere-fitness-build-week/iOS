@@ -12,7 +12,7 @@
 		0B60428D230E3AAB00B471AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B60428C230E3AAB00B471AE /* Assets.xcassets */; };
 		0B604290230E3AAB00B471AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B60428E230E3AAB00B471AE /* LaunchScreen.storyboard */; };
 		0B604298230E3DF100B471AE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B604297230E3DF100B471AE /* FirstViewController.swift */; };
-		0B60429A230E3E1800B471AE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B604299230E3E1800B471AE /* LogInViewController.swift */; };
+		0B60429A230E3E1800B471AE /* InstructorLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B604299230E3E1800B471AE /* InstructorLogInViewController.swift */; };
 		0B60429C230E6B9000B471AE /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60429B230E6B9000B471AE /* Bearer.swift */; };
 		0B60429E230E6B9C00B471AE /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60429D230E6B9C00B471AE /* Instructor.swift */; };
 		0B6042A0230E6BAB00B471AE /* FitnessClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60429F230E6BAB00B471AE /* FitnessClass.swift */; };
@@ -27,7 +27,7 @@
 		0B60428F230E3AAB00B471AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B604291230E3AAB00B471AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B604297230E3DF100B471AE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		0B604299230E3E1800B471AE /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		0B604299230E3E1800B471AE /* InstructorLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorLogInViewController.swift; sourceTree = "<group>"; };
 		0B60429B230E6B9000B471AE /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		0B60429D230E6B9C00B471AE /* Instructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
 		0B60429F230E6BAB00B471AE /* FitnessClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessClass.swift; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 				0B60428E230E3AAB00B471AE /* LaunchScreen.storyboard */,
 				0B604291230E3AAB00B471AE /* Info.plist */,
 				0B604297230E3DF100B471AE /* FirstViewController.swift */,
-				0B604299230E3E1800B471AE /* LogInViewController.swift */,
+				0B604299230E3E1800B471AE /* InstructorLogInViewController.swift */,
 				0B60429B230E6B9000B471AE /* Bearer.swift */,
 				0B60429D230E6B9C00B471AE /* Instructor.swift */,
 				0B60429F230E6BAB00B471AE /* FitnessClass.swift */,
@@ -151,7 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B60429C230E6B9000B471AE /* Bearer.swift in Sources */,
-				0B60429A230E3E1800B471AE /* LogInViewController.swift in Sources */,
+				0B60429A230E3E1800B471AE /* InstructorLogInViewController.swift in Sources */,
 				0B604298230E3DF100B471AE /* FirstViewController.swift in Sources */,
 				0B60429E230E6B9C00B471AE /* Instructor.swift in Sources */,
 				0B6042A0230E6BAB00B471AE /* FitnessClass.swift in Sources */,
