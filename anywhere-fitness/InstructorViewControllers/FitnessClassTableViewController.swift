@@ -10,39 +10,52 @@ import UIKit
 
 class FitnessClassTableViewController: UITableViewController {
     
-    var instructorController: InstructorController!
-    var fitnessClasses: [FitnessClass] = []
+    var instructorController = InstructorController()
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if instructorController.bearer == nil {
+            performSegue(withIdentifier: "InstructorToLogInVC", sender: self)
+        } else {
+            self.instructorController.fetchClasses { (error) in
+                if let error = error {
+                    print(error)
+                    return
+                } else {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        print(self.instructorController.fitnessClasses)
+                    }
+                }
+            }
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        self.instructorController.fetchClasses { (error) in  //for instructor id - add this later
-        //            if let error = error {
-        //                print(error)
-        //                return
-        //            }
-        //            DispatchQueue.main.async {
-        //                //self.updateView()  //with instructor id //self.fitnessClasses = result for from fetchClasses
-        //            }
-        //        }
+        self.tableView.reloadData()
     }
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return self.instructorController.fitnessClasses.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "classCell", for: indexPath)
-        
-        
+        let fitnessClass = self.instructorController.fitnessClasses[indexPath.row]
+        cell.textLabel?.text = fitnessClass.name
+        cell.detailTextLabel?.text = fitnessClass.description
         return cell
     }
     
@@ -81,15 +94,26 @@ class FitnessClassTableViewController: UITableViewController {
      }
      */
     
-    /*
+
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+        if segue.identifier == "InstructorToLogInVC" {
+            guard let destVC = segue.destination as? InstructorLogInViewController else {return}
+                destVC.instructorController = self.instructorController
+        } else if segue.identifier == "InstructorToAddClass" {
+            guard let destVC = segue.destination as? FitnessClassDetailViewController else {return}
+                destVC.instructorController = self.instructorController
+        } else if segue.identifier == "InstructorToShowClass" {
+            guard let destVC = segue.destination as? FitnessClassDetailViewController,
+                    let selectedRow = self.tableView.indexPathForSelectedRow else {return}
+                destVC.instructorController = self.instructorController
+                destVC.fitnessClass = self.instructorController.fitnessClasses[selectedRow.row]
+            
+        }
      }
-     */
+
     
     private func updateViews() {
     }

@@ -1,18 +1,21 @@
 //
-//  FirstViewController.swift
+//  FitnessClassDetailViewController.swift
 //  anywhere-fitness
 //
-//  Created by Dongwoo Pae on 8/21/19.
+//  Created by Dongwoo Pae on 8/23/19.
 //  Copyright © 2019 Dongwoo Pae. All rights reserved.
 //
 
 import UIKit
 
-class FirstViewController: UIViewController {
-    
+class FitnessClassDetailViewController: UIViewController {
+
+    var instructorController: InstructorController!
+    var fitnessClass: FitnessClass?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
     

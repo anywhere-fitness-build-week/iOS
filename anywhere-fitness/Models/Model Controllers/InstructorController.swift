@@ -14,10 +14,10 @@ enum HTTPMethod: String {
     case post = "POST"
 }
 
+
 class InstructorController {
-    
+
     var fitnessClasses: [FitnessClass] = []
-    
     var bearer: Bearer?
     
     private let baseUrl = URL(string: "https://anywhere-fitness-azra-be.herokuapp.com/api/")!
@@ -89,29 +89,31 @@ class InstructorController {
             }
             
             guard let data = data else {
-                completion(NSError())
+                completion(error)
                 return
             }
             
             let jsonDecoder = JSONDecoder()
             
             do {
-                self.bearer = try jsonDecoder.decode(Bearer.self, from: data)
+                let bearer = try jsonDecoder.decode(Bearer.self, from: data)
+                self.bearer = bearer
                 print(self.bearer!)
+                completion(nil)
                 
             } catch {
                 NSLog("Error decoding bearer object: \(error)")
                 completion(error)
                 return
             }
-            completion(nil)
         }.resume()
     }
     
     //Fetching Classes - GET
     func fetchClasses(completion: @escaping (Error?)-> Void) {
-        guard let input = self.bearer else {
-            print("there is no bearer")
+        
+        guard let bearer = bearer else {
+            print("there is no bearer for fetchingClassessss")
             return
         }
         
@@ -120,7 +122,7 @@ class InstructorController {
         var request = URLRequest(url: instructorURL)
         request.httpMethod = HTTPMethod.get.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(input.token, forHTTPHeaderField: "Authorization")
+        request.addValue(bearer.token, forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let response = response as? HTTPURLResponse,
@@ -129,7 +131,7 @@ class InstructorController {
                 return
             }
             
-            if let _ = error {
+            if let error = error {
                 completion(error)
                 return
             }
@@ -144,16 +146,14 @@ class InstructorController {
             jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
             
             do {
-                let classes = try jsonDecoder.decode([FitnessClass].self, from: data)
-                self.fitnessClasses = classes
-                //print(classes)
+                let fitnessClasses = try jsonDecoder.decode([FitnessClass].self, from: data)
+                self.fitnessClasses = fitnessClasses
                 completion(nil)
             } catch {
                 NSLog("Error decoding animal objects: \(error)")
                 completion(error)
                 return
             }
-            completion(nil)
         }.resume()
     }
 }

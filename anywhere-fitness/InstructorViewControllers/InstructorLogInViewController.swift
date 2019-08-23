@@ -15,9 +15,6 @@ enum LoginType {
 
 class InstructorLogInViewController: UIViewController {
     
-    
-    
-    
     @IBOutlet weak var fullnameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -25,11 +22,14 @@ class InstructorLogInViewController: UIViewController {
     @IBOutlet weak var loginTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var signInButton: UIButton!
     
-    var instructorController = InstructorController()
+    var instructorController: InstructorController!
+    
     var loginType = LoginType.signUp
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     }
     
     
@@ -65,11 +65,10 @@ class InstructorLogInViewController: UIViewController {
             } else {
                 instructorController.signIn(with: instructor) { (error) in
                     if let error = error {
-                        NSLog("Error occurred during sign up: \(error)")
-                    } else {
-                        DispatchQueue.main.async {
-                            print("token is here")
-                        }
+                        print(error)
+                    }
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
                     }
                 }
             }
@@ -84,16 +83,6 @@ class InstructorLogInViewController: UIViewController {
         } else {
             self.loginType = .signIn
             self.signInButton.setTitle("Sign In", for: .normal)
-        }
-    }
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToFitnessClassVCFromInstructor" {
-            guard let destVC = segue.destination as? FitnessClassTableViewController else {return}
-            destVC.instructorController = self.instructorController
         }
     }
 }

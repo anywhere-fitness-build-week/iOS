@@ -12,8 +12,8 @@ struct FitnessClass: Codable {
     let name: String
     let description: String
     let time: String
-    let instructor_id: Int
-    let category_id: Int
+//    let instructor_id: Int
+//    let category_id: Int
 }
 
 
