@@ -8,12 +8,15 @@
 
 import Foundation
 
-struct FitnessClass: Codable {
-    let name: String
-    let description: String
-    let time: String
-//    let instructor_id: Int
-//    let category_id: Int
+struct FitnessClass: Codable, Equatable {
+    let id: Int?
+    var name: String
+    var description: String?
+    var time: String?
+    let instructorId: Int
+    let categoryId: Int
+    //make an optional array of let punchPass:Int? and use this after fitnessClass gets fetchedinto the device.
+    //since it is an optional, we do not need to have that when fetching the classes
 }
 
 

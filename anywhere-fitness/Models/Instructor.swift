@@ -7,7 +7,7 @@
 //
 import Foundation
 
-struct Instructor: Codable {
+struct Instructor: Codable, Equatable {
     let fullname: String
     let username: String
     let password: String

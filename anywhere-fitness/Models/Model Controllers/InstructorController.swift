@@ -12,6 +12,8 @@ import UIKit
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
 }
 
 
@@ -57,7 +59,7 @@ class InstructorController {
         }.resume()
     }
     
-    //signIn - POST
+    //signIn - POST  - requried fields -> fullname, username, password
     func signIn(with instructor: Instructor, completion: @escaping (Error?) -> Void) {
         let signInURL = baseUrl.appendingPathComponent("auth/login")
         
@@ -109,7 +111,7 @@ class InstructorController {
         }.resume()
     }
     
-    //Fetching Classes - GET
+    //Fetching Classes - GET - requried fields -> username, password
     func fetchClasses(completion: @escaping (Error?)-> Void) {
         
         guard let bearer = bearer else {
@@ -154,6 +156,106 @@ class InstructorController {
                 completion(error)
                 return
             }
+        }.resume()
+    }
+    
+    //Creating Classes - POST - requried fields -> name, instructorId (bearer.insturctor[0].id), categoryId (just give it 1 now)
+    func createClass(name: String, instructorId: Int, categoryId: Int, description: String?, time: String?, completion:@escaping(Error?)->()) {
+        let fitnessClass = FitnessClass(id: nil, name: name, description: "", time: "", instructorId: instructorId, categoryId: categoryId)
+        
+        //POST
+        let createFitnessClassURL = self.baseUrl.appendingPathComponent("classes")
+        
+        guard let bearer = self.bearer else {
+            completion(NSError())
+            return
+        }
+        
+        var request = URLRequest(url: createFitnessClassURL)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(bearer.token, forHTTPHeaderField: "Authorization")
+        
+        let jsonEncoder = JSONEncoder()
+        
+        jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
+        
+        do {
+            let jsonData = try jsonEncoder.encode(fitnessClass)
+            request.httpBody = jsonData
+        } catch {
+            NSLog("Error encoding user objects: \(error)")
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
+            }
+            if let _ = error {
+                completion(NSError())
+                return
+            }
+            self.fitnessClasses.append(fitnessClass)
+            completion(nil)
+        }.resume()
+    }
+    
+    //Updating Classes - PUT - classes/id# for class
+    func updateFitnessClass(for fitnessClass: FitnessClass, ChangeNameTo: String, completion:@escaping (Error?)->Void) {
+        
+        //making sure passed fitnessClass exists in array of FitnessClass
+        guard let index = self.fitnessClasses.firstIndex(of: fitnessClass) else {return}
+            self.fitnessClasses[index].name = ChangeNameTo
+        
+        
+        //PUT
+        guard let fitnessClassId = fitnessClass.id else {return}
+        
+        let updateFitnessClassURL = self.baseUrl.appendingPathComponent(("classes/\(fitnessClassId)"))
+        
+        guard let bearer = self.bearer else {
+            completion(NSError())
+            return
+        }
+        
+        var request = URLRequest(url: updateFitnessClassURL)
+        request.httpMethod = HTTPMethod.put.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(bearer.token, forHTTPHeaderField: "Authorization")
+        
+        let jsonEncoder = JSONEncoder()
+        
+        do {
+            let jsonData = try jsonEncoder.encode(fitnessClass)
+            request.httpBody = jsonData
+        } catch {
+            NSLog("There is an error in decoding: \(error)")
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
+            }
+            
+            if let error = error {
+                print(error)
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(error)
+                return
+            }
+            completion(nil)
         }.resume()
     }
 }

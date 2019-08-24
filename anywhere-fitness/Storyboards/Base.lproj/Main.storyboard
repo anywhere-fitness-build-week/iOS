@@ -115,20 +115,46 @@
             </objects>
             <point key="canvasLocation" x="4366" y="-655"/>
         </scene>
-        <!--Fitness Class Detail View Controller-->
+        <!--Title-->
         <scene sceneID="34g-vw-sh3">
             <objects>
                 <viewController id="7cl-FC-dDV" customClass="FitnessClassDetailViewController" customModule="anywhere_fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iih-dZ-9h6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ClassName: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMi-yT-Blv">
+                                <rect key="frame" x="39" y="187" width="96" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yEL-r7-itn">
+                                <rect key="frame" x="143" y="189" width="205" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="h3t-EQ-9wx"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="HDG-3H-3Kd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="y3p-Ot-A9r">
+                            <connections>
+                                <action selector="SaveButtonTapped:" destination="7cl-FC-dDV" id="cPC-Nq-iZI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="fitnessClassNameTextField" destination="yEL-r7-itn" id="4R4-rA-Jj6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZQ-dP-2ii" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4994" y="-119"/>
+            <point key="canvasLocation" x="4992.8000000000002" y="-119.70443349753695"/>
         </scene>
         <!--Title-->
         <scene sceneID="dgB-DI-q7t">
@@ -200,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8X-HH-jDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4426" y="726"/>
+            <point key="canvasLocation" x="4410" y="688"/>
         </scene>
         <!--Title-->
         <scene sceneID="Dij-Y0-REK">
