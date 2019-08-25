@@ -251,8 +251,47 @@ class InstructorController {
                 return
             }
             
-            guard let data = data else {
+            guard let data = data else {  //no data coming back unless getting number 1 means something
                 completion(error)
+                return
+            }
+            completion(nil)
+        }.resume()
+    }
+    
+    //Delete
+    func deleteFitnessClass(for fitnessClass: FitnessClass, completion: @escaping (Error?) -> Void) {
+        
+        //Delete locally
+        guard let index = self.fitnessClasses.firstIndex(of: fitnessClass) else {return}
+        self.fitnessClasses.remove(at: index)
+        
+        guard let fitnessClassId =  fitnessClass.id else {return}
+        
+        let deleteFitnessClassURL = baseUrl.appendingPathComponent("classes/\(fitnessClassId)")
+        
+        
+        guard let bearer = self.bearer else {
+            completion(NSError())
+            return
+        }
+        
+        var request = URLRequest(url: deleteFitnessClassURL)
+        request.httpMethod = HTTPMethod.delete.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(bearer.token, forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                    return
+                }
+            }
+            
+            if let error = error {
+                print(error)
                 return
             }
             completion(nil)
