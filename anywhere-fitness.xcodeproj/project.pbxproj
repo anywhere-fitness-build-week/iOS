@@ -12,11 +12,13 @@
 		0B60428D230E3AAB00B471AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B60428C230E3AAB00B471AE /* Assets.xcassets */; };
 		0B604290230E3AAB00B471AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B60428E230E3AAB00B471AE /* LaunchScreen.storyboard */; };
 		0B604298230E3DF100B471AE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B604297230E3DF100B471AE /* FirstViewController.swift */; };
-		0B60429A230E3E1800B471AE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B604299230E3E1800B471AE /* LogInViewController.swift */; };
+		0B60429A230E3E1800B471AE /* InstructorLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B604299230E3E1800B471AE /* InstructorLogInViewController.swift */; };
 		0B60429C230E6B9000B471AE /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60429B230E6B9000B471AE /* Bearer.swift */; };
 		0B60429E230E6B9C00B471AE /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60429D230E6B9C00B471AE /* Instructor.swift */; };
 		0B6042A0230E6BAB00B471AE /* FitnessClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60429F230E6BAB00B471AE /* FitnessClass.swift */; };
 		0B6042A2230E6D8900B471AE /* InstructorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6042A1230E6D8900B471AE /* InstructorController.swift */; };
+		0BE88714230F95BD002A8616 /* FitnessClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE88713230F95BD002A8616 /* FitnessClassTableViewController.swift */; };
+		0BE88718230FCF42002A8616 /* FitnessClassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE88717230FCF42002A8616 /* FitnessClassDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +29,13 @@
 		0B60428F230E3AAB00B471AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B604291230E3AAB00B471AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B604297230E3DF100B471AE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		0B604299230E3E1800B471AE /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		0B604299230E3E1800B471AE /* InstructorLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorLogInViewController.swift; sourceTree = "<group>"; };
 		0B60429B230E6B9000B471AE /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		0B60429D230E6B9C00B471AE /* Instructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
 		0B60429F230E6BAB00B471AE /* FitnessClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessClass.swift; sourceTree = "<group>"; };
 		0B6042A1230E6D8900B471AE /* InstructorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorController.swift; sourceTree = "<group>"; };
+		0BE88713230F95BD002A8616 /* FitnessClassTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessClassTableViewController.swift; sourceTree = "<group>"; };
+		0BE88717230FCF42002A8616 /* FitnessClassDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessClassDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,19 +68,61 @@
 		0B604284230E3AAA00B471AE /* anywhere-fitness */ = {
 			isa = PBXGroup;
 			children = (
-				0B604285230E3AAA00B471AE /* AppDelegate.swift */,
-				0B604289230E3AAA00B471AE /* Main.storyboard */,
-				0B60428C230E3AAB00B471AE /* Assets.xcassets */,
-				0B60428E230E3AAB00B471AE /* LaunchScreen.storyboard */,
-				0B604291230E3AAB00B471AE /* Info.plist */,
+				0BE88715230F971E002A8616 /* Models */,
 				0B604297230E3DF100B471AE /* FirstViewController.swift */,
-				0B604299230E3E1800B471AE /* LogInViewController.swift */,
+				0BE8871B230FD2A6002A8616 /* InstructorViewControllers */,
+				0BE8871A230FD292002A8616 /* Storyboards */,
+				0BE88719230FD270002A8616 /* Resources */,
+			);
+			path = "anywhere-fitness";
+			sourceTree = "<group>";
+		};
+		0BE88715230F971E002A8616 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				0B60429B230E6B9000B471AE /* Bearer.swift */,
 				0B60429D230E6B9C00B471AE /* Instructor.swift */,
 				0B60429F230E6BAB00B471AE /* FitnessClass.swift */,
+				0BE88716230F972F002A8616 /* Model Controllers */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0BE88716230F972F002A8616 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				0B6042A1230E6D8900B471AE /* InstructorController.swift */,
 			);
-			path = "anywhere-fitness";
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		0BE88719230FD270002A8616 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0B604285230E3AAA00B471AE /* AppDelegate.swift */,
+				0B60428C230E3AAB00B471AE /* Assets.xcassets */,
+				0B60428E230E3AAB00B471AE /* LaunchScreen.storyboard */,
+				0B604291230E3AAB00B471AE /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0BE8871A230FD292002A8616 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0B604289230E3AAA00B471AE /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0BE8871B230FD2A6002A8616 /* InstructorViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0BE88713230F95BD002A8616 /* FitnessClassTableViewController.swift */,
+				0BE88717230FCF42002A8616 /* FitnessClassDetailViewController.swift */,
+				0B604299230E3E1800B471AE /* InstructorLogInViewController.swift */,
+			);
+			path = InstructorViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +197,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B60429C230E6B9000B471AE /* Bearer.swift in Sources */,
-				0B60429A230E3E1800B471AE /* LogInViewController.swift in Sources */,
+				0BE88714230F95BD002A8616 /* FitnessClassTableViewController.swift in Sources */,
+				0B60429A230E3E1800B471AE /* InstructorLogInViewController.swift in Sources */,
+				0BE88718230FCF42002A8616 /* FitnessClassDetailViewController.swift in Sources */,
 				0B604298230E3DF100B471AE /* FirstViewController.swift in Sources */,
 				0B60429E230E6B9C00B471AE /* Instructor.swift in Sources */,
 				0B6042A0230E6BAB00B471AE /* FitnessClass.swift in Sources */,
@@ -304,7 +352,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C22Z4773SH;
-				INFOPLIST_FILE = "anywhere-fitness/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/anywhere-fitness/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,7 +370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C22Z4773SH;
-				INFOPLIST_FILE = "anywhere-fitness/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/anywhere-fitness/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
