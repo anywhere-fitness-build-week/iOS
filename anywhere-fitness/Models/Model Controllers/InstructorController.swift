@@ -100,6 +100,7 @@ class InstructorController {
             do {
                 let bearer = try jsonDecoder.decode(Bearer.self, from: data)
                 self.bearer = bearer
+
                 print(self.bearer!)
                 completion(nil)
                 
@@ -211,11 +212,17 @@ class InstructorController {
         guard let index = self.fitnessClasses.firstIndex(of: fitnessClass) else {return}
             self.fitnessClasses[index].name = ChangeNameTo
         
+        let updatedClass = fitnessClasses[index]
         
         //PUT
+        
         guard let fitnessClassId = fitnessClass.id else {return}
         
         let updateFitnessClassURL = self.baseUrl.appendingPathComponent(("classes/\(fitnessClassId)"))
+        
+        let params = ["name": ChangeNameTo] as [String: Any]
+        
+        let json = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
         
         guard let bearer = self.bearer else {
             completion(NSError())
@@ -230,8 +237,8 @@ class InstructorController {
         let jsonEncoder = JSONEncoder()
         
         do {
-            let jsonData = try jsonEncoder.encode(fitnessClass)
-            request.httpBody = jsonData
+        
+            request.httpBody = json
         } catch {
             NSLog("There is an error in decoding: \(error)")
             completion(error)
@@ -247,11 +254,6 @@ class InstructorController {
             
             if let error = error {
                 print(error)
-                completion(error)
-                return
-            }
-            
-            guard let data = data else {  //no data coming back unless getting number 1 means something
                 completion(error)
                 return
             }

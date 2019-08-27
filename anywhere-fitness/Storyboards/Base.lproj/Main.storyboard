@@ -113,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3O6-SI-pVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4366" y="-655"/>
+            <point key="canvasLocation" x="4326" y="-494"/>
         </scene>
         <!--Title-->
         <scene sceneID="34g-vw-sh3">
@@ -226,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8X-HH-jDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4410" y="688"/>
+            <point key="canvasLocation" x="4388" y="553"/>
         </scene>
         <!--Title-->
         <scene sceneID="Dij-Y0-REK">
@@ -237,11 +237,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="48" id="Woi-vw-0EB">
-                                <rect key="frame" x="0.0" y="28" width="375" height="48"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="66" id="Woi-vw-0EB">
+                                <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Woi-vw-0EB" id="YMP-AS-18B">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="47.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="65.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -280,6 +280,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="O3W-j2-MTa"/>
+        <segue reference="Mbe-Yj-x3b"/>
     </inferredMetricsTieBreakers>
 </document>

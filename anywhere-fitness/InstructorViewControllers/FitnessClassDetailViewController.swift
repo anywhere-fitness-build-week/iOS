@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Foundation
 
 class FitnessClassDetailViewController: UIViewController {
     
     var instructorController: InstructorController!
+    
     var fitnessClass: FitnessClass? {
         didSet {
             self.updateViews()
@@ -26,8 +28,6 @@ class FitnessClassDetailViewController: UIViewController {
         self.updateViews()
         // Do any additional setup after loading the view.
     }
-    
-    
     /*
      // MARK: - Navigation
      

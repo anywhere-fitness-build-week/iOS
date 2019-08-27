@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 enum LoginType {
     case signUp
@@ -67,6 +68,7 @@ class InstructorLogInViewController: UIViewController {
                     if let error = error {
                         print(error)
                     }
+                
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }
