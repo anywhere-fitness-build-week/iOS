@@ -18,15 +18,18 @@ enum HTTPMethod: String {
 
 
 class InstructorController {
-
+    
     var fitnessClasses: [FitnessClass] = []
     var bearer: Bearer?
     
     private let baseUrl = URL(string: "https://anywhere-fitness-azra-be.herokuapp.com/api/")!
+    //client-register and client-login for client
     
     //Sign up - POST
     func signUp(with instructor: Instructor, completion: @escaping (Error?)-> Void) {
         let signUpURL = baseUrl.appendingPathComponent("auth/register")
+        
+  //      let clientURL = baseUrl.appendingPathComponent("auth/client-register")
         
         var request = URLRequest(url: signUpURL)
         request.httpMethod = HTTPMethod.post.rawValue
@@ -56,12 +59,14 @@ class InstructorController {
             }
             completion(nil)
             print("passed sign in")
-        }.resume()
+            }.resume()
     }
     
     //signIn - POST  - requried fields -> fullname, username, password
     func signIn(with instructor: Instructor, completion: @escaping (Error?) -> Void) {
         let signInURL = baseUrl.appendingPathComponent("auth/login")
+        
+//        let clientURL = baseUrl.appendingPathComponent("client-register")
         
         var request = URLRequest(url: signInURL)
         request.httpMethod = HTTPMethod.post.rawValue
@@ -100,7 +105,7 @@ class InstructorController {
             do {
                 let bearer = try jsonDecoder.decode(Bearer.self, from: data)
                 self.bearer = bearer
-
+                
                 print(self.bearer!)
                 completion(nil)
                 
@@ -109,7 +114,7 @@ class InstructorController {
                 completion(error)
                 return
             }
-        }.resume()
+            }.resume()
     }
     
     //Fetching Classes - GET - requried fields -> username, password
@@ -157,7 +162,7 @@ class InstructorController {
                 completion(error)
                 return
             }
-        }.resume()
+            }.resume()
     }
     
     //Creating Classes - POST - requried fields -> name, instructorId (bearer.insturctor[0].id), categoryId (just give it 1 now)
@@ -202,7 +207,7 @@ class InstructorController {
             }
             self.fitnessClasses.append(fitnessClass)
             completion(nil)
-        }.resume()
+            }.resume()
     }
     
     //Updating Classes - PUT - classes/id# for class
@@ -210,7 +215,7 @@ class InstructorController {
         
         //making sure passed fitnessClass exists in array of FitnessClass
         guard let index = self.fitnessClasses.firstIndex(of: fitnessClass) else {return}
-            self.fitnessClasses[index].name = ChangeNameTo
+        self.fitnessClasses[index].name = ChangeNameTo
         
         //let updatedClass = fitnessClasses[index]
         //PUT
@@ -236,7 +241,7 @@ class InstructorController {
         request.addValue(bearer.token, forHTTPHeaderField: "Authorization")
         
         request.httpBody = json
-
+        
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
@@ -250,7 +255,7 @@ class InstructorController {
                 return
             }
             completion(nil)
-        }.resume()
+            }.resume()
     }
     
     //Delete
@@ -289,6 +294,6 @@ class InstructorController {
                 return
             }
             completion(nil)
-        }.resume()
+            }.resume()
     }
 }
