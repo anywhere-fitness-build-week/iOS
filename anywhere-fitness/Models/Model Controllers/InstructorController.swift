@@ -212,17 +212,18 @@ class InstructorController {
         guard let index = self.fitnessClasses.firstIndex(of: fitnessClass) else {return}
             self.fitnessClasses[index].name = ChangeNameTo
         
-        let updatedClass = fitnessClasses[index]
-        
+        //let updatedClass = fitnessClasses[index]
         //PUT
         
         guard let fitnessClassId = fitnessClass.id else {return}
         
         let updateFitnessClassURL = self.baseUrl.appendingPathComponent(("classes/\(fitnessClassId)"))
         
-        let params = ["name": ChangeNameTo] as [String: Any]
         
+        //creating its own json file for name change
+        let params = ["name": ChangeNameTo] as [String: Any]
         let json = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        
         
         guard let bearer = self.bearer else {
             completion(NSError())
@@ -234,17 +235,8 @@ class InstructorController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue(bearer.token, forHTTPHeaderField: "Authorization")
         
-        let jsonEncoder = JSONEncoder()
-        
-        do {
-        
-            request.httpBody = json
-        } catch {
-            NSLog("There is an error in decoding: \(error)")
-            completion(error)
-            return
-        }
-        
+        request.httpBody = json
+
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
