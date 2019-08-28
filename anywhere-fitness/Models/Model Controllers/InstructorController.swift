@@ -20,6 +20,7 @@ enum HTTPMethod: String {
 class InstructorController {
     
     var fitnessClasses: [FitnessClass] = []
+
     var bearer: Bearer?
     
     private let baseUrl = URL(string: "https://anywhere-fitness-azra-be.herokuapp.com/api/")!
@@ -155,7 +156,9 @@ class InstructorController {
             
             do {
                 let fitnessClasses = try jsonDecoder.decode([FitnessClass].self, from: data)
-                self.fitnessClasses = fitnessClasses
+                let instructorId = self.bearer?.instructor[0].id
+                let myFitnessClasses = fitnessClasses.filter{$0.instructorId == instructorId}
+                self.fitnessClasses = myFitnessClasses
                 completion(nil)
             } catch {
                 NSLog("Error decoding animal objects: \(error)")
@@ -264,6 +267,8 @@ class InstructorController {
         //Delete locally
         guard let index = self.fitnessClasses.firstIndex(of: fitnessClass) else {return}
         self.fitnessClasses.remove(at: index)
+        
+        
         
         guard let fitnessClassId =  fitnessClass.id else {return}
         

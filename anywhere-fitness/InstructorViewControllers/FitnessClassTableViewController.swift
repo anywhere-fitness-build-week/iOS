@@ -8,10 +8,11 @@
 
 import UIKit
 
-class FitnessClassTableViewController: UITableViewController {
+class FitnessClassTableViewController: UITableViewController, UISearchBarDelegate {
     
-    var instructorController = InstructorController()
-    
+    let instructorController = InstructorController()
+
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,19 +33,13 @@ class FitnessClassTableViewController: UITableViewController {
         }
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.reloadData()
+        self.searchBar.delegate = self
     }
     
     // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -59,8 +54,8 @@ class FitnessClassTableViewController: UITableViewController {
         return cell
     }
     
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let fitnesClass = self.instructorController.fitnessClasses[indexPath.row]
         self.instructorController.deleteFitnessClass(for: fitnesClass) { (error) in
             if let error = error {
@@ -69,47 +64,52 @@ class FitnessClassTableViewController: UITableViewController {
             }
             
         }
-        self.tableView.deleteRows(at: [indexPath], with: .automatic)
-     }
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
 
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //searchBarSearchButton
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        resignFirstResponder()
+        if let searchTerm = searchBar.text,
+                !searchTerm.isEmpty {
+            let filteredClasses = self.instructorController.fitnessClasses.filter {$0.name.contains(searchTerm)}
+            self.instructorController.fitnessClasses = filteredClasses
+            self.tableView.reloadData()
+            
+        } else {
+            self.instructorController.fetchClasses { (error) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "InstructorToLogInVC" {
             guard let destVC = segue.destination as? InstructorLogInViewController else {return}
-                destVC.instructorController = self.instructorController
+            destVC.instructorController = self.instructorController
         } else if segue.identifier == "InstructorToAddClass" {
             guard let destVC = segue.destination as? FitnessClassDetailViewController else {return}
-                destVC.instructorController = self.instructorController
+            destVC.instructorController = self.instructorController
         } else if segue.identifier == "InstructorToShowClass" {
             guard let destVC = segue.destination as? FitnessClassDetailViewController,
-                    let selectedRow = self.tableView.indexPathForSelectedRow else {return}
-                destVC.instructorController = self.instructorController
-                destVC.fitnessClass = self.instructorController.fitnessClasses[selectedRow.row]
+                let selectedRow = self.tableView.indexPathForSelectedRow else {return}
+            destVC.instructorController = self.instructorController
+            destVC.fitnessClass = self.instructorController.fitnessClasses[selectedRow.row]
             
         }
-     }
-
+    }
     
     private func updateViews() {
         //this could be used with customeCell
     }
-
+    
 }

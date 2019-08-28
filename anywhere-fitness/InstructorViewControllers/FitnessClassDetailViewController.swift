@@ -22,11 +22,9 @@ class FitnessClassDetailViewController: UIViewController {
     
     @IBOutlet weak var fitnessClassNameTextField: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateViews()
-        // Do any additional setup after loading the view.
     }
     /*
      // MARK: - Navigation
@@ -37,6 +35,7 @@ class FitnessClassDetailViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
     @IBAction func SaveButtonTapped(_ sender: Any) {
         if let fitnessClassName = self.fitnessClassNameTextField.text,
             let bearer = self.instructorController.bearer   {
