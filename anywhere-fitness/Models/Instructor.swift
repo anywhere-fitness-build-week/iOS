@@ -13,7 +13,7 @@ struct Instructor: Codable, Equatable {
     let password: String
 }
 
-struct User: Codable {
-    let username: String
-    let password: String
-}
+//struct User: Codable {
+//    let username: String
+//    let password: String
+//}

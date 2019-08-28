@@ -17,6 +17,10 @@
 		0B60429E230E6B9C00B471AE /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60429D230E6B9C00B471AE /* Instructor.swift */; };
 		0B6042A0230E6BAB00B471AE /* FitnessClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60429F230E6BAB00B471AE /* FitnessClass.swift */; };
 		0B6042A2230E6D8900B471AE /* InstructorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6042A1230E6D8900B471AE /* InstructorController.swift */; };
+		0BC9F9262315359800CD6F11 /* FitnessClassMemberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9F9252315359800CD6F11 /* FitnessClassMemberTableViewController.swift */; };
+		0BC9F928231535BE00CD6F11 /* MemberLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9F927231535BE00CD6F11 /* MemberLogInViewController.swift */; };
+		0BC9F92C231538AF00CD6F11 /* MemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9F92B231538AF00CD6F11 /* MemberController.swift */; };
+		0BC9F92F231563CB00CD6F11 /* BearerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9F92E231563CB00CD6F11 /* BearerClient.swift */; };
 		0BE88714230F95BD002A8616 /* FitnessClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE88713230F95BD002A8616 /* FitnessClassTableViewController.swift */; };
 		0BE88718230FCF42002A8616 /* FitnessClassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE88717230FCF42002A8616 /* FitnessClassDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +38,10 @@
 		0B60429D230E6B9C00B471AE /* Instructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
 		0B60429F230E6BAB00B471AE /* FitnessClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessClass.swift; sourceTree = "<group>"; };
 		0B6042A1230E6D8900B471AE /* InstructorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorController.swift; sourceTree = "<group>"; };
+		0BC9F9252315359800CD6F11 /* FitnessClassMemberTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FitnessClassMemberTableViewController.swift; path = ../FitnessClassMemberTableViewController.swift; sourceTree = "<group>"; };
+		0BC9F927231535BE00CD6F11 /* MemberLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemberLogInViewController.swift; path = ../MemberLogInViewController.swift; sourceTree = "<group>"; };
+		0BC9F92B231538AF00CD6F11 /* MemberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberController.swift; sourceTree = "<group>"; };
+		0BC9F92E231563CB00CD6F11 /* BearerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearerClient.swift; sourceTree = "<group>"; };
 		0BE88713230F95BD002A8616 /* FitnessClassTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessClassTableViewController.swift; sourceTree = "<group>"; };
 		0BE88717230FCF42002A8616 /* FitnessClassDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessClassDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,10 +79,20 @@
 				0BE88715230F971E002A8616 /* Models */,
 				0B604297230E3DF100B471AE /* FirstViewController.swift */,
 				0BE8871B230FD2A6002A8616 /* InstructorViewControllers */,
+				0BC9F929231535C400CD6F11 /* MemberViewControllers */,
 				0BE8871A230FD292002A8616 /* Storyboards */,
 				0BE88719230FD270002A8616 /* Resources */,
 			);
 			path = "anywhere-fitness";
+			sourceTree = "<group>";
+		};
+		0BC9F929231535C400CD6F11 /* MemberViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0BC9F9252315359800CD6F11 /* FitnessClassMemberTableViewController.swift */,
+				0BC9F927231535BE00CD6F11 /* MemberLogInViewController.swift */,
+			);
+			path = MemberViewControllers;
 			sourceTree = "<group>";
 		};
 		0BE88715230F971E002A8616 /* Models */ = {
@@ -83,6 +101,7 @@
 				0B60429B230E6B9000B471AE /* Bearer.swift */,
 				0B60429D230E6B9C00B471AE /* Instructor.swift */,
 				0B60429F230E6BAB00B471AE /* FitnessClass.swift */,
+				0BC9F92E231563CB00CD6F11 /* BearerClient.swift */,
 				0BE88716230F972F002A8616 /* Model Controllers */,
 			);
 			path = Models;
@@ -92,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				0B6042A1230E6D8900B471AE /* InstructorController.swift */,
+				0BC9F92B231538AF00CD6F11 /* MemberController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -196,13 +216,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BC9F9262315359800CD6F11 /* FitnessClassMemberTableViewController.swift in Sources */,
 				0B60429C230E6B9000B471AE /* Bearer.swift in Sources */,
 				0BE88714230F95BD002A8616 /* FitnessClassTableViewController.swift in Sources */,
+				0BC9F92F231563CB00CD6F11 /* BearerClient.swift in Sources */,
 				0B60429A230E3E1800B471AE /* InstructorLogInViewController.swift in Sources */,
 				0BE88718230FCF42002A8616 /* FitnessClassDetailViewController.swift in Sources */,
+				0BC9F928231535BE00CD6F11 /* MemberLogInViewController.swift in Sources */,
 				0B604298230E3DF100B471AE /* FirstViewController.swift in Sources */,
 				0B60429E230E6B9C00B471AE /* Instructor.swift in Sources */,
 				0B6042A0230E6BAB00B471AE /* FitnessClass.swift in Sources */,
+				0BC9F92C231538AF00CD6F11 /* MemberController.swift in Sources */,
 				0B6042A2230E6D8900B471AE /* InstructorController.swift in Sources */,
 				0B604286230E3AAA00B471AE /* AppDelegate.swift in Sources */,
 			);

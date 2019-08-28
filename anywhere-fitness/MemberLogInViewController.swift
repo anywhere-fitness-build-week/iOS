@@ -9,12 +9,12 @@
 import UIKit
 import Foundation
 
-enum LoginType {
+enum LoginTypeClient {
     case signUp
     case signIn
 }
 
-class InstructorLogInViewController: UIViewController {
+class MemberLogInViewController: UIViewController {
     
     @IBOutlet weak var fullnameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -23,14 +23,14 @@ class InstructorLogInViewController: UIViewController {
     @IBOutlet weak var loginTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var signInButton: UIButton!
     
-    var instructorController: InstructorController!
+    var memberController: MemberController!
     
-    var loginType = LoginType.signUp
+    var loginType = LoginTypeClient.signUp
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
     }
     
     
@@ -46,7 +46,7 @@ class InstructorLogInViewController: UIViewController {
             let instructor = Instructor(fullname: fullname, username: username, password: password)
             
             if loginType == .signUp {
-                instructorController.signUp(with: instructor) { (error) in
+                memberController.signUp(with: instructor) { (error) in
                     
                     if let error = error {
                         NSLog("Error occurred during sign up: \(error)")
@@ -64,11 +64,11 @@ class InstructorLogInViewController: UIViewController {
                     }
                 }
             } else {
-                instructorController.signIn(with: instructor) { (error) in
+                memberController.signIn(with: instructor) { (error) in
                     if let error = error {
                         print(error)
                     }
-                
+                    
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }
