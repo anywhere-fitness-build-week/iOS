@@ -113,13 +113,18 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IuI-Q0-k2w">
-                                    <rect key="frame" x="14" y="8" width="347" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IuI-Q0-k2w">
+                                    <rect key="frame" x="6" y="6" width="363" height="46"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="IuI-Q0-k2w" firstAttribute="top" secondItem="5bW-qx-jgJ" secondAttribute="top" constant="6" id="GjM-cG-Ndc"/>
+                                <constraint firstAttribute="trailing" secondItem="IuI-Q0-k2w" secondAttribute="trailing" constant="6" id="ZcJ-tg-aMJ"/>
+                                <constraint firstAttribute="bottom" secondItem="IuI-Q0-k2w" secondAttribute="bottom" constant="6" id="tQQ-9m-4vB"/>
+                                <constraint firstItem="IuI-Q0-k2w" firstAttribute="leading" secondItem="5bW-qx-jgJ" secondAttribute="leading" constant="6" id="x0m-bH-n2c"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="classCell" textLabel="XXM-mK-Kgy" detailTextLabel="wGK-EJ-qx5" rowHeight="59" style="IBUITableViewCellStyleSubtitle" id="1b6-Ra-oiZ">
@@ -164,6 +169,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="IuI-Q0-k2w" id="M3n-tp-Bma"/>
+                        <outlet property="searchUIView" destination="5bW-qx-jgJ" id="MoO-cf-nNn"/>
                         <segue destination="8ty-5Q-Wqw" kind="presentation" identifier="InstructorToLogInVC" id="PAc-EZ-Nn0"/>
                     </connections>
                 </tableViewController>

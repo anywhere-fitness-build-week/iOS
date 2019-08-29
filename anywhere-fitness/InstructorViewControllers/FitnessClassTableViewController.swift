@@ -12,6 +12,7 @@ class FitnessClassTableViewController: UITableViewController, UISearchBarDelegat
     
     let instructorController = InstructorController()
 
+    @IBOutlet weak var searchUIView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +38,13 @@ class FitnessClassTableViewController: UITableViewController, UISearchBarDelegat
         super.viewDidLoad()
         self.tableView.reloadData()
         self.searchBar.delegate = self
+        searchUIView.backgroundColor = AppearanceHelper.backgroundPurple
+        searchBar.layer.borderColor = AppearanceHelper.mainColorLightBlue.cgColor
+        searchBar.layer.borderWidth = 2
+        searchBar.layer.cornerRadius = 15.0
+        searchBar.placeholder = "Search"
+        searchBar.searchBarStyle = .minimal
+        searchBar.barTintColor = AppearanceHelper.mainColorLightBlue
     }
     
     // MARK: - Table view data source
@@ -51,6 +59,7 @@ class FitnessClassTableViewController: UITableViewController, UISearchBarDelegat
         let fitnessClass = self.instructorController.fitnessClasses[indexPath.row]
         cell.textLabel?.text = fitnessClass.name
         cell.detailTextLabel?.text = fitnessClass.description
+        AppearanceHelper.styleForInstructor(cell: cell)
         return cell
     }
     

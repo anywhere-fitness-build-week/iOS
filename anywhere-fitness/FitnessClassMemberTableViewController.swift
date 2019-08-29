@@ -56,6 +56,7 @@ class FitnessClassMemberTableViewController: UITableViewController {
         let fitnessClass = self.memberController.fitnessClasses[indexPath.row]
         cell.textLabel?.text = fitnessClass.name
         cell.detailTextLabel?.text = fitnessClass.description
+        AppearanceHelper.styleForMember(cell: cell)
         return cell
     }
     
