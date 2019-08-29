@@ -30,7 +30,6 @@ class MemberLogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     

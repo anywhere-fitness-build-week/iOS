@@ -108,8 +108,13 @@ class FitnessClassTableViewController: UITableViewController, UISearchBarDelegat
         }
     }
     
-    private func updateViews() {
-        //this could be used with customeCell
-    }
+//    private func updateViews() {
+//        //this could be used with customeCell
+//    }
+/*
+ 
+     TEST COMMIT
+ 
+*/
     
 }
