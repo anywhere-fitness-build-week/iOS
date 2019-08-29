@@ -30,7 +30,7 @@ class InstructorLogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
     }
     
     
@@ -68,7 +68,7 @@ class InstructorLogInViewController: UIViewController {
                     if let error = error {
                         print(error)
                     }
-                
+                    
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -82,10 +82,41 @@ class InstructorLogInViewController: UIViewController {
         if sender.selectedSegmentIndex == 0 {
             self.loginType = .signUp
             self.signInButton.setTitle("Sign Up", for: .normal)
+            resetAnimation()
         } else {
             self.loginType = .signIn
             self.signInButton.setTitle("Sign In", for: .normal)
+            scControlOneTapped()
         }
+    }
+    
+    //animation for fullNameTextField
+    func scControlOneTapped() {
+        let animBlock = {
+            UITextField.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.1, animations: {
+                self.fullnameTextField.transform = CGAffineTransform(rotationAngle: CGFloat(Int.random(in: -360...360)))
+            })
+            
+            UITextField.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3, animations: {
+                self.fullnameTextField.backgroundColor = UIColor(red: CGFloat(Int.random(in: 0...255)) / 255, green: CGFloat(Int.random(in: 0...255)) / 255, blue: CGFloat(Int.random(in: 0...255)) / 255, alpha: 1)
+            })
+            
+            UITextField.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8, animations: {
+                self.fullnameTextField.alpha = 0
+            })
+        }
+        UITextField.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: animBlock, completion: nil)
+    }
+    
+    func resetAnimation() {
+        let animBlock = {
+            UITextField.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.4, animations: {
+                self.fullnameTextField.transform = .identity
+                self.fullnameTextField.alpha = 1
+                self.fullnameTextField.backgroundColor = .white
+            })
+        }
+        UITextField.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: animBlock, completion: nil)
     }
 }
 

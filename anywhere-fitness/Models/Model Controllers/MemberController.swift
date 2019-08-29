@@ -16,7 +16,6 @@ enum HTTPMethodClient: String {
     case delete = "DELETE"
 }
 
-
 class MemberController {
     
     var fitnessClasses: [FitnessClass] = []
