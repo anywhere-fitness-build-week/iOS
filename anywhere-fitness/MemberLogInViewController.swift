@@ -58,6 +58,7 @@ class MemberLogInViewController: UIViewController {
                                 self.loginType = .signIn
                                 self.loginTypeSegmentedControl.selectedSegmentIndex = 1
                                 self.signInButton.setTitle("Sign In", for: .normal)
+                                self.scControlOneTapped()
                             })
                         }
                     }
