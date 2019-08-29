@@ -39,9 +39,13 @@ class InstructorLogInViewController: UIViewController {
         layer.shadowRadius = 15
         layer.shadowOpacity = 0.4
         layer.cornerRadius = 15
-    
+        layer.opacity = 0.85
+        
         //signInbutton
         signInButton.layer.cornerRadius = 12
+        
+        //backgroundImage
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Instructor Photo")!)
     }
     
     

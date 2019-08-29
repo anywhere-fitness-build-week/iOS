@@ -21,19 +21,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZM-jK-01t" userLabel="BackgroundView">
                                 <rect key="frame" x="20" y="273" width="374" height="350"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="FULLNAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="unk-rR-mh6">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="FULLNAME" minimumFontSize="17" background="textfield-background" translatesAutoresizingMaskIntoConstraints="NO" id="unk-rR-mh6">
                                         <rect key="frame" x="10" y="108" width="354" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USERNAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a8G-zU-Jdc">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USERNAME" minimumFontSize="17" background="textfield-background" translatesAutoresizingMaskIntoConstraints="NO" id="a8G-zU-Jdc">
                                         <rect key="frame" x="10" y="158" width="354" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PASSWORD" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nHL-tJ-yRk">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PASSWORD" minimumFontSize="17" background="textfield-background" translatesAutoresizingMaskIntoConstraints="NO" id="nHL-tJ-yRk">
                                         <rect key="frame" x="10" y="208" width="354" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
@@ -108,4 +108,7 @@
             <point key="canvasLocation" x="4318.840579710145" y="-497.54464285714283"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="textfield-background" width="227" height="44"/>
+    </resources>
 </document>
