@@ -63,7 +63,6 @@
         <!--Title-->
         <scene sceneID="9bu-dj-OTG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3O6-SI-pVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Eqo-GN-DuL" customClass="InstructorLogInViewController" customModule="anywhere_fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="80S-Rq-yEY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -122,6 +121,7 @@
                         <outlet property="usernameTextField" destination="Ii7-kx-YQ5" id="k7c-Lo-8hK"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3O6-SI-pVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4326" y="-508"/>
         </scene>
@@ -375,6 +375,6 @@
         <image name="Member Photo" width="1350" height="900"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Mbe-Yj-x3b"/>
+        <segue reference="O3W-j2-MTa"/>
     </inferredMetricsTieBreakers>
 </document>
