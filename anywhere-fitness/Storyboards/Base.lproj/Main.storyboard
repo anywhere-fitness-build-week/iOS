@@ -18,30 +18,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q80-Up-PY9">
-                                <rect key="frame" x="117" y="355" width="141" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Instructor">
-                                    <color key="titleColor" red="1" green="0.59313957740000001" blue="0.24232602240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="fGF-m5-dAW" kind="show" id="WJn-Xv-dVk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oa2-yo-bPy">
-                                <rect key="frame" x="117" y="428" width="141" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Member">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="FXS-Ni-qSP" kind="show" id="gXk-6A-Qk4"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tbm-RV-MUV">
+                                <rect key="frame" x="0.0" y="140" width="375" height="638"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q80-Up-PY9">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                        <state key="normal" title="Instructor" image="Instructor Photo">
+                                            <color key="titleColor" red="1" green="0.59313957740000001" blue="0.24232602240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="fGF-m5-dAW" kind="show" id="WJn-Xv-dVk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oa2-yo-bPy">
+                                        <rect key="frame" x="0.0" y="319" width="375" height="319"/>
+                                        <state key="normal" title="Member" image="Member Photo">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="FXS-Ni-qSP" kind="show" id="gXk-6A-Qk4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Oa2-yo-bPy" firstAttribute="width" secondItem="Q80-Up-PY9" secondAttribute="width" id="Xyd-Wy-zBG"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tbm-RV-MUV" firstAttribute="bottom" secondItem="aVg-T1-oV1" secondAttribute="bottom" id="0zB-pd-Mg0"/>
+                            <constraint firstItem="tbm-RV-MUV" firstAttribute="trailing" secondItem="aVg-T1-oV1" secondAttribute="trailing" id="BNf-Kb-6jo"/>
+                            <constraint firstItem="tbm-RV-MUV" firstAttribute="top" secondItem="aVg-T1-oV1" secondAttribute="top" id="O4i-WT-3iZ"/>
+                            <constraint firstItem="tbm-RV-MUV" firstAttribute="leading" secondItem="aVg-T1-oV1" secondAttribute="leading" id="dg9-lG-wtO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aVg-T1-oV1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Anywhere Fitness" id="4mq-ke-K0s"/>
@@ -360,6 +370,10 @@
             <point key="canvasLocation" x="4326" y="598"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Instructor Photo" width="1350" height="900"/>
+        <image name="Member Photo" width="1350" height="900"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="O3W-j2-MTa"/>
     </inferredMetricsTieBreakers>
