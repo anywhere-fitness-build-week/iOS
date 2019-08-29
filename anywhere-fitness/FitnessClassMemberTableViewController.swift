@@ -12,7 +12,6 @@ class FitnessClassMemberTableViewController: UITableViewController {
     
     var memberController = MemberController()
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if memberController.bearer == nil {
