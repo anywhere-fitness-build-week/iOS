@@ -16,6 +16,8 @@ enum LoginType {
 
 class InstructorLogInViewController: UIViewController {
     
+    @IBOutlet weak var backgroundView: UIView!
+    
     @IBOutlet weak var fullnameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -27,15 +29,30 @@ class InstructorLogInViewController: UIViewController {
     
     var loginType = LoginType.signUp
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //programmatic layout
+        //BackgroundView
+        let layer = backgroundView.layer
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 15
+        layer.shadowOpacity = 0.4
+        layer.cornerRadius = 15
+        layer.opacity = 0.85
+        
+        //signInbutton
+        signInButton.layer.cornerRadius = 12
+        
+        //backgroundImage
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Instructor Photo")!)
     }
     
     
     @IBAction func buttonTapped(_ sender: Any) {
         // perform login or sign up operation based on loginType
+        
+        self.buttonAnimation()
         
         if let username = self.usernameTextField.text,
             !username.isEmpty,
@@ -59,6 +76,7 @@ class InstructorLogInViewController: UIViewController {
                                 self.loginType = .signIn
                                 self.loginTypeSegmentedControl.selectedSegmentIndex = 1
                                 self.signInButton.setTitle("Sign In", for: .normal)
+                                self.scControlOneTapped()
                             })
                         }
                     }
@@ -117,6 +135,18 @@ class InstructorLogInViewController: UIViewController {
             })
         }
         UITextField.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: animBlock, completion: nil)
+    }
+    
+    
+    //button animation
+    func buttonAnimation() {
+        UIButton.animate(withDuration: 0.3, animations: {
+            self.signInButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        }) { (_) in
+            UIButton.animate(withDuration: 0.3, animations: {
+                self.signInButton.transform = .identity
+            }, completion: nil)
+        }
     }
 }
 
