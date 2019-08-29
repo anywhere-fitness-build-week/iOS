@@ -71,7 +71,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ClassName: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMi-yT-Blv">
                                 <rect key="frame" x="39" y="187" width="96" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -217,7 +217,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Blm-bL-lXk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3589.5999999999999" y="552.70935960591135"/>
+            <point key="canvasLocation" x="3540" y="546"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FQa-ii-Z4F">
@@ -243,15 +243,15 @@
                 <viewControllerPlaceholder storyboardName="InstructorLogInView" id="8ty-5Q-Wqw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOq-bG-A0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4319" y="-497"/>
+            <point key="canvasLocation" x="4380" y="-384"/>
         </scene>
         <!--MemberLogInView-->
         <scene sceneID="Vbc-Sh-TyW">
             <objects>
-                <viewControllerPlaceholder storyboardName="MemberLogInView" id="vle-Gd-paO" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BE3-ZL-CEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="MemberLogInView" id="vle-Gd-paO" sceneMemberID="viewController"/>
             </objects>
-            <point key="canvasLocation" x="4402" y="617"/>
+            <point key="canvasLocation" x="4389" y="469"/>
         </scene>
     </scenes>
     <resources>
