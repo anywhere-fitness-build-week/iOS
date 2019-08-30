@@ -51,6 +51,9 @@ class MemberLogInViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender: Any) {
         // perform login or sign up operation based on loginType
+        
+        UserDefaults.standard.set(usernameTextField.text, forKey: "myMemberUserName")
+    
         self.buttonAnimation()
         if let username = self.usernameTextField.text,
             !username.isEmpty,
@@ -143,6 +146,13 @@ class MemberLogInViewController: UIViewController {
             UIButton.animate(withDuration: 0.3, animations: {
                 self.signInButton.transform = .identity
             }, completion: nil)
+        }
+    }
+    override func viewDidAppear(_ animated: Bool)
+    {
+        if let memberDefault = UserDefaults.standard.object(forKey: "myMemberUserName") as? String {
+            usernameTextField.text = memberDefault
+//            print(usernameTextField!)
         }
     }
 }

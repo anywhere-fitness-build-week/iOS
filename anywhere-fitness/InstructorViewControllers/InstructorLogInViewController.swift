@@ -52,6 +52,10 @@ class InstructorLogInViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: Any) {
         // perform login or sign up operation based on loginType
         
+   
+        UserDefaults.standard.set(usernameTextField.text, forKey: "myInstructorUserName")
+
+        
         self.buttonAnimation()
         
         if let username = self.usernameTextField.text,
@@ -148,5 +152,12 @@ class InstructorLogInViewController: UIViewController {
             }, completion: nil)
         }
     }
+    override func viewDidAppear(_ animated: Bool)
+    {
+        if let instructorDefault = UserDefaults.standard.object(forKey: "myInstructorUserName") as? String {
+            usernameTextField.text = instructorDefault
+        }
+    }
+    
 }
 
