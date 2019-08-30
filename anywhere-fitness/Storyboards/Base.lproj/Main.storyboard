@@ -23,7 +23,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q80-Up-PY9">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
-                                        <state key="normal" title="Instructor" image="Instructor Photo">
+                                        <state key="normal" title="Instructor" image="OFFICIAL INSTRUCTOR PHOTO">
                                             <color key="titleColor" red="1" green="0.59313957740000001" blue="0.24232602240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -32,7 +32,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oa2-yo-bPy">
                                         <rect key="frame" x="0.0" y="319" width="375" height="319"/>
-                                        <state key="normal" title="Member" image="Member Photo">
+                                        <state key="normal" title="Member" image="OFFICIAL MEMBER PHOTO">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -291,8 +291,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Instructor Photo" width="1350" height="900"/>
-        <image name="Member Photo" width="1350" height="900"/>
+        <image name="OFFICIAL INSTRUCTOR PHOTO" width="1396" height="946"/>
+        <image name="OFFICIAL MEMBER PHOTO" width="1428" height="978"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Mbe-Yj-x3b"/>

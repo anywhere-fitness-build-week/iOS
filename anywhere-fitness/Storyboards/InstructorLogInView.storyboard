@@ -57,7 +57,7 @@
                                             <segment title="Sign Up"/>
                                             <segment title="Sign In"/>
                                         </segments>
-                                        <color key="tintColor" red="0.35004167000000003" green="0.74008725180000001" blue="0.92506450409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.35008338093757629" green="0.73451977968215942" blue="0.92220836877822876" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="signInTypeChanged:" destination="Eqo-GN-DuL" eventType="valueChanged" id="u6m-ks-SrT"/>
                                         </connections>
