@@ -127,6 +127,7 @@ class InstructorController {
             return
         }
         
+        
         let instructorURL = baseUrl.appendingPathComponent("classes")
         
         var request = URLRequest(url: instructorURL)

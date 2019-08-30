@@ -48,7 +48,7 @@ class FitnessClassDetailViewController: UIViewController {
             
             //update fitnessClass
             if let fitnessClass = self.fitnessClass {
-                self.instructorController.updateFitnessClass(for: fitnessClass, ChangeNameTo: fitnessClassName, description: fitnessClassDescription, time: fitnessClassTime) { (error) in
+                self.instructorController.updateFitnessClass(for: fitnessClass, ChangeNameTo: fitnessClassName.capitalized, description: fitnessClassDescription, time: fitnessClassTime) { (error) in
                     if let error = error {
                         print(error)
                         return
@@ -62,7 +62,7 @@ class FitnessClassDetailViewController: UIViewController {
                 //createClass
                 //pass instructor's id
                 let instructorId = bearer.instructor[0].id
-                self.instructorController.createClass(name: fitnessClassName, instructorId: instructorId, categoryId: 1, description: fitnessClassDescription, time: fitnessClassTime) { (error) in
+                self.instructorController.createClass(name: fitnessClassName.capitalized, instructorId: instructorId, categoryId: 1, description: fitnessClassDescription, time: fitnessClassTime) { (error) in
                     if let error = error {
                         print(error)
                         return
