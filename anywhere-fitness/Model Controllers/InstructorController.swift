@@ -108,6 +108,7 @@ class InstructorController {
                 self.bearer = bearer
                 
                 print(self.bearer!)
+    
                 completion(nil)
                 
             } catch {
@@ -125,6 +126,7 @@ class InstructorController {
             print("there is no bearer for fetchingClassessss")
             return
         }
+        
         
         let instructorURL = baseUrl.appendingPathComponent("classes")
         
