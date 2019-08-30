@@ -14,5 +14,6 @@ struct BearerClient: Codable, Equatable {
     
     struct Detail: Codable, Equatable {
         let id: Int
+        let fullname: String
     }
 }
