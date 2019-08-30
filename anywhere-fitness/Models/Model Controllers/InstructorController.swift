@@ -108,6 +108,7 @@ class InstructorController {
                 self.bearer = bearer
                 
                 print(self.bearer!)
+    
                 completion(nil)
                 
             } catch {
