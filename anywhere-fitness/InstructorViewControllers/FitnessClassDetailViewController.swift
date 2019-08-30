@@ -21,9 +21,7 @@ class FitnessClassDetailViewController: UIViewController {
     
     
     @IBOutlet weak var fitnessClassNameTextField: UITextField!
-    
     @IBOutlet weak var fitnessClassTimeTextField: UITextField!
-    
     @IBOutlet weak var fitnessClassDescriptionTextView: UITextView!
     
     override func viewDidLoad() {
@@ -31,7 +29,7 @@ class FitnessClassDetailViewController: UIViewController {
         self.updateViews()
         fitnessClassDescriptionTextView.layer.borderWidth = 1.0
         fitnessClassDescriptionTextView.layer.cornerRadius = 5
-        fitnessClassDescriptionTextView.text = "Give a description of your class..."
+
     }
     /*
      // MARK: - Navigation
@@ -50,7 +48,7 @@ class FitnessClassDetailViewController: UIViewController {
             
             //update fitnessClass
             if let fitnessClass = self.fitnessClass {
-                self.instructorController.updateFitnessClass(for: fitnessClass, ChangeNameTo: fitnessClassName) { (error) in
+                self.instructorController.updateFitnessClass(for: fitnessClass, ChangeNameTo: fitnessClassName, description: fitnessClassDescription, time: fitnessClassTime) { (error) in
                     if let error = error {
                         print(error)
                         return
@@ -82,6 +80,8 @@ class FitnessClassDetailViewController: UIViewController {
     private func updateViews() {
         if let fitnessClass = self.fitnessClass {
         self.fitnessClassNameTextField?.text = fitnessClass.name
+        self.fitnessClassTimeTextField?.text = fitnessClass.time
+            self.fitnessClassDescriptionTextView?.text = fitnessClass.description
             self.navigationItem.title = "\(fitnessClass.name)"
         } else {
             self.navigationItem.title = "Create Class"

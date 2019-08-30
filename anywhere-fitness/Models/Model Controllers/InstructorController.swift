@@ -169,8 +169,8 @@ class InstructorController {
     }
     
     //Creating Classes - POST - requried fields -> name, instructorId (bearer.insturctor[0].id), categoryId (just give it 1 now)
-    func createClass(name: String, instructorId: Int, categoryId: Int, description: String?, time: String?, completion:@escaping(Error?)->()) {
-        let fitnessClass = FitnessClass(id: nil, name: name, description: "", time: "", instructorId: instructorId, categoryId: categoryId)
+    func createClass(name: String, instructorId: Int, categoryId: Int, description: String, time: String, completion:@escaping(Error?)->()) {
+        let fitnessClass = FitnessClass(id: nil, name: name, description: description, time: time, instructorId: instructorId, categoryId: categoryId)
         
         //POST
         let createFitnessClassURL = self.baseUrl.appendingPathComponent("classes")
@@ -214,7 +214,7 @@ class InstructorController {
     }
     
     //Updating Classes - PUT - classes/id# for class
-    func updateFitnessClass(for fitnessClass: FitnessClass, ChangeNameTo: String, completion:@escaping (Error?)->Void) {
+    func updateFitnessClass(for fitnessClass: FitnessClass, ChangeNameTo: String, description: String, time: String, completion:@escaping (Error?)->Void) {
         
         //making sure passed fitnessClass exists in array of FitnessClass
         guard let index = self.fitnessClasses.firstIndex(of: fitnessClass) else {return}
@@ -229,7 +229,9 @@ class InstructorController {
         
         
         //creating its own json file for name change
-        let params = ["name": ChangeNameTo] as [String: Any]
+        let params = ["name": ChangeNameTo,
+                      "time": time,
+                      "description": description] as [String: Any]
         let json = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
         
         
