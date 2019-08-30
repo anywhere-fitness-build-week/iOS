@@ -83,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				0BE88715230F971E002A8616 /* Models */,
+				0BE88716230F972F002A8616 /* Model Controllers */,
 				0B604297230E3DF100B471AE /* FirstViewController.swift */,
 				0BE8871B230FD2A6002A8616 /* InstructorViewControllers */,
 				0BC9F929231535C400CD6F11 /* MembersViewController */,
@@ -109,7 +110,6 @@
 				0B60429D230E6B9C00B471AE /* Instructor.swift */,
 				0B60429F230E6BAB00B471AE /* FitnessClass.swift */,
 				0BC9F92E231563CB00CD6F11 /* BearerClient.swift */,
-				0BE88716230F972F002A8616 /* Model Controllers */,
 			);
 			path = Models;
 			sourceTree = "<group>";
