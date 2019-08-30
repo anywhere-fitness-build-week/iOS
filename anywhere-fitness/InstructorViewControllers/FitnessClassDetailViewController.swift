@@ -21,14 +21,18 @@ class FitnessClassDetailViewController: UIViewController {
     
     
     @IBOutlet weak var fitnessClassNameTextField: UITextField!
+    @IBOutlet weak var fitnessClassTimeTextField: UITextField!
+    @IBOutlet weak var fitnessClassDescriptionTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateViews()
+        fitnessClassDescriptionTextView.layer.borderWidth = 1.0
+        fitnessClassDescriptionTextView.layer.cornerRadius = 5
+
     }
     /*
      // MARK: - Navigation
-     
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
@@ -38,11 +42,13 @@ class FitnessClassDetailViewController: UIViewController {
     
     @IBAction func SaveButtonTapped(_ sender: Any) {
         if let fitnessClassName = self.fitnessClassNameTextField.text,
+            let fitnessClassTime = self.fitnessClassTimeTextField.text,
+            let fitnessClassDescription = self.fitnessClassDescriptionTextView.text,
             let bearer = self.instructorController.bearer   {
             
-            //update fitnessClasse
+            //update fitnessClass
             if let fitnessClass = self.fitnessClass {
-                self.instructorController.updateFitnessClass(for: fitnessClass, ChangeNameTo: fitnessClassName) { (error) in
+                self.instructorController.updateFitnessClass(for: fitnessClass, ChangeNameTo: fitnessClassName, description: fitnessClassDescription, time: fitnessClassTime) { (error) in
                     if let error = error {
                         print(error)
                         return
@@ -56,7 +62,7 @@ class FitnessClassDetailViewController: UIViewController {
                 //createClass
                 //pass instructor's id
                 let instructorId = bearer.instructor[0].id
-                self.instructorController.createClass(name: fitnessClassName, instructorId: instructorId, categoryId: 1, description: "", time: "") { (error) in
+                self.instructorController.createClass(name: fitnessClassName, instructorId: instructorId, categoryId: 1, description: fitnessClassDescription, time: fitnessClassTime) { (error) in
                     if let error = error {
                         print(error)
                         return
@@ -74,6 +80,8 @@ class FitnessClassDetailViewController: UIViewController {
     private func updateViews() {
         if let fitnessClass = self.fitnessClass {
         self.fitnessClassNameTextField?.text = fitnessClass.name
+        self.fitnessClassTimeTextField?.text = fitnessClass.time
+            self.fitnessClassDescriptionTextView?.text = fitnessClass.description
             self.navigationItem.title = "\(fitnessClass.name)"
         } else {
             self.navigationItem.title = "Create Class"

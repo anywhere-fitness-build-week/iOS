@@ -14,6 +14,7 @@ class FitnessClassTableViewController: UITableViewController, UISearchBarDelegat
 
     @IBOutlet weak var searchUIView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,8 +33,11 @@ class FitnessClassTableViewController: UITableViewController, UISearchBarDelegat
                 }
             }
         }
+        
+        guard let bearer = instructorController.bearer else { return }
+        let fullName = bearer.instructor[0].fullname
+        self.title = "Welcome, \(fullName)!"
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.reloadData()
@@ -46,7 +50,6 @@ class FitnessClassTableViewController: UITableViewController, UISearchBarDelegat
         searchBar.searchBarStyle = .minimal
         searchBar.barTintColor = AppearanceHelper.mainColorLightBlue
     }
-    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,8 +60,9 @@ class FitnessClassTableViewController: UITableViewController, UISearchBarDelegat
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "classCell", for: indexPath)
         let fitnessClass = self.instructorController.fitnessClasses[indexPath.row]
-        cell.textLabel?.text = fitnessClass.name
+        cell.textLabel?.text = "\(fitnessClass.name) - \(fitnessClass.time)"
         cell.detailTextLabel?.text = fitnessClass.description
+        
         AppearanceHelper.styleForInstructor(cell: cell)
         return cell
     }

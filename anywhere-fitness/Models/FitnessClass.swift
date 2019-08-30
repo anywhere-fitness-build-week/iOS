@@ -11,8 +11,8 @@ import Foundation
 struct FitnessClass: Codable, Equatable {
     let id: Int?
     var name: String
-    var description: String?
-    var time: String?
+    var description: String
+    var time: String
     let instructorId: Int
     let categoryId: Int
     //make an optional array of let punchPass:Int? and use this after fitnessClass gets fetchedinto the device.

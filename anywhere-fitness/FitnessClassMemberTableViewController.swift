@@ -53,7 +53,7 @@ class FitnessClassMemberTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "classCellClient", for: indexPath)
         let fitnessClass = self.memberController.fitnessClasses[indexPath.row]
-        cell.textLabel?.text = fitnessClass.name
+        cell.textLabel?.text = "\(fitnessClass.name) - \(fitnessClass.time)"
         cell.detailTextLabel?.text = fitnessClass.description
         AppearanceHelper.styleForMember(cell: cell)
         return cell

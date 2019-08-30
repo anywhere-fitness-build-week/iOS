@@ -17,11 +17,9 @@ enum LoginType {
 class InstructorLogInViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
-    
     @IBOutlet weak var fullnameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var loginTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var signInButton: UIButton!
     
