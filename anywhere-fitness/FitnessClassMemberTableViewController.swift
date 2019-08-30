@@ -29,6 +29,10 @@ class FitnessClassMemberTableViewController: UITableViewController {
                 }
             }
         }
+        
+        guard let bearer = memberController.bearer else { return }
+        let fullName = bearer.client[0].fullname
+        self.title = "Welcome, \(fullName)!"
     }
     
     
