@@ -85,7 +85,7 @@ class FitnessClassTableViewController: UITableViewController, UISearchBarDelegat
         resignFirstResponder()
         if let searchTerm = searchBar.text,
                 !searchTerm.isEmpty {
-            let filteredClasses = self.instructorController.fitnessClasses.filter {$0.name.contains(searchTerm)}
+            let filteredClasses = self.instructorController.fitnessClasses.filter {$0.name.contains(searchTerm.capitalized)}
             self.instructorController.fitnessClasses = filteredClasses
             self.tableView.reloadData()
             
